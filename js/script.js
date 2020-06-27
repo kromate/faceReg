@@ -5,8 +5,7 @@ Promise.all([
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
   faceapi.nets.faceExpressionNet.loadFromUri('/models')
-]).then(startVideo)
-
+]).then(startVi=deo)
 
 function startVideo() {
   navigator.getUserMedia(
@@ -30,4 +29,3 @@ video.addEventListener('play', () => {
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
   }, 100)
 })
-
