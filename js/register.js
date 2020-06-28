@@ -49,6 +49,8 @@ video.addEventListener('play', () => {
       console.log('snap')
       document.getElementById('btPic').click()
       console.log(count)
+      document.querySelector('#alert').style.color = 'green';
+      document.querySelector('#alert').innerHTML = `Face found, Captured ${count} out of 3`
       if (count == 2) {
         console.log('done')
         clearInterval(recog)
@@ -57,6 +59,8 @@ video.addEventListener('play', () => {
 
     } else {
       console.log('adjust your face');
+      document.querySelector('#alert').style.color= 'red';
+      document.querySelector('#alert').innerHTML= `Can't find a Face, Please Adjust`
       console.log(document.getElementById('snapShot').childElementCount);
 
       
