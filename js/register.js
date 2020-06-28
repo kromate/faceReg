@@ -60,7 +60,7 @@ video.addEventListener('play', () => {
     } else {
       console.log('adjust your face');
       document.querySelector('#alert').style.color= 'red';
-      document.querySelector('#alert').innerHTML= `Can't find a Face, Please Adjust`
+      document.querySelector('#alert').innerHTML = `Can't find a Face, Please Adjust <br>  Captured ${count} out of 3`
       console.log(document.getElementById('snapShot').childElementCount);
 
       
