@@ -28,7 +28,7 @@ Webcam.attach('#camera');
 takeSnapShot = function () {
   Webcam.snap(function (data_uri) {
     document.getElementById('snapShot').innerHTML +=
-      `<img onClick='scanImg()' class='' style='margin: 1rem;' src= '${data_uri}' width="200px" height="200px" />`;
+      `<img onClick='scanImg()' class='' style='margin: 1rem; display:none' src= '${data_uri}' width="200px" height="200px" />`;
   });
 }
 var recog;
@@ -44,18 +44,37 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-    console.log(resizedDetections.length)
+    let count = document.getElementById('snapShot').childElementCount;
     if (resizedDetections.length == 1) {
       console.log('snap')
       document.getElementById('btPic').click()
-      console.log(document.getElementById('snapShot').childElementCount)
-      if (document.getElementById('snapShot').childElementCount = 4) {
+      console.log(count)
+      if (count == 2) {
         console.log('done')
         clearInterval(recog)
+        success()
       }
-    } else { console.log('adjust your face'); console.log(document.getElementById('snapShot').childElementCount) }
+
+    } else {
+      console.log('adjust your face');
+      console.log(document.getElementById('snapShot').childElementCount);
+
+      
+    }
   }, 1000)
 });
 
 
 
+function success() {
+  document.querySelector('body').innerHTML = `
+    <div class="content">
+    <h1>Registration Completed</h1>
+    <h4>Navigating back to homePage</h4>
+  </div>
+  `
+  setTimeout(home, 5000)
+}
+function home() {
+  window.location.assign('./index.html')
+}
