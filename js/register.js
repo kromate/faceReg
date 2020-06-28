@@ -14,6 +14,7 @@ function startVideo() {
     err => console.error(err)
   )
 }
+
 // CAMERA SETTINGS.
 Webcam.set({
   width: 350,
@@ -27,30 +28,34 @@ Webcam.attach('#camera');
 takeSnapShot = function () {
   Webcam.snap(function (data_uri) {
     document.getElementById('snapShot').innerHTML +=
-      `<img style='margin: 1rem;' src= '${data_uri}' width="200px" height="200px" />`;
+      `<img onClick='scanImg()' class='' style='margin: 1rem;' src= '${data_uri}' width="200px" height="200px" />`;
   });
 }
-
-// DOWNLOAD THE IMAGE.
-downloadImage = function (name, datauri) {
-  var a = document.createElement('a');
-  a.setAttribute('download', name + '.png');
-  a.setAttribute('href', datauri);
-  a.click();
-}
-
+var recog;
 video.addEventListener('play', () => {
   const canvas = faceapi.createCanvasFromMedia(video)
   document.body.append(canvas)
   const displaySize = { width: video.width, height: video.height }
   faceapi.matchDimensions(canvas, displaySize)
-  setInterval(async () => {
+  var recog = setInterval(async () => {
     const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    canvas.addEventListener('click', function () { document.querySelector('#btPic').click()})
-  }, 100)
-})
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+    console.log(resizedDetections.length)
+    if (resizedDetections.length == 1) {
+      console.log('snap')
+      document.getElementById('btPic').click()
+      console.log(document.getElementById('snapShot').childElementCount)
+      if (document.getElementById('snapShot').childElementCount = 4) {
+        console.log('done')
+        clearInterval(recog)
+      }
+    } else { console.log('adjust your face'); console.log(document.getElementById('snapShot').childElementCount) }
+  }, 1000)
+});
+
+
 
