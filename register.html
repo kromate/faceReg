@@ -5,11 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/custom.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
+  <script defer src="./js/face-api.min.js"></script> 
   <script defer src="./js/register.js"></script>
   <title>Register</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      canvas {
+        position: absolute;
+      }
+    </style>
 </head>
 <body>
-      <div id="camera" style="height:auto;width:auto; text-align:center;"></div>
+      <div id="camera" style="height:auto;width:auto; text-align:center; display: none;"></div>
+      <video id="video" width="720" height="560" autoplay muted></video>
       
       <!--FOR THE SNAPSHOT-->
       <input type="button" value="Take a Snap" id="btPic" onclick="takeSnapShot()" />
