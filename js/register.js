@@ -47,11 +47,11 @@ video.addEventListener('play', () => {
     let count = document.getElementById('snapShot').childElementCount;
     if (resizedDetections.length == 1) {
       console.log('snap')
-      document.getElementById('btPic').click()
+      takeSnapShot()
       console.log(count)
       document.querySelector('#alert').style.color = 'green';
       document.querySelector('#alert').innerHTML = `Face found, Captured ${count} out of 3`
-      if (count == 2) {
+      if (count == 3) {
         console.log('done')
         clearInterval(recog)
         success()
