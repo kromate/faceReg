@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Register</title>
-    <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
+    <script defer type="text/javascript" src="./js/webcam.js"></script>
   <script defer src="./js/face-api.min.js"></script>
   <script defer src="./js/script.js"></script>
   <style>
@@ -28,12 +28,12 @@
 </head>
 
 <body>
+  <h4 id="alert"></h4>
   <video id="video" width="720" height="560" autoplay muted></video>
 
         <div id="camera" style="height:auto;width:auto; text-align:center; display:none;"></div>
   <br>        
-        <!--FOR THE SNAPSHOT-->
-        <input type="button" value="Take a Snap" id="btPic" onclick="takeSnapShot()" />
+        <!--FOR THE SNAPSHOT--> 
         <p id="snapShot"></p>
 </body>
 
