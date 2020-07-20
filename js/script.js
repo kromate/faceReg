@@ -85,32 +85,42 @@ async function scanImg() {
   const container = document.createElement('div')
   container.style.position = 'relative'
   document.body.append(container)
+  const labeledFaceDescriptors = await loadLabeledImages()
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+
   const canvas = faceapi.createCanvasFromMedia(image)
   document.body.append(canvas)
   const displaySize = { width: image.width, height: image.height }
   faceapi.matchDimensions(canvas, displaySize)
   const detection = await faceapi.detectAllFaces(image).withFaceLandmarks().withFaceDescriptors()
   if (detection.length < 1) {
-    recapture()
+    location.reload()
   } else { 
     console.log(detection.length)
     const resizedDetections = faceapi.resizeResults(detection, displaySize)
-    resizedDetections.forEach((detection) => {
-      const box = detection.detection.box
-      const drawBox = new faceapi.draw.DrawBox(box, { label: 'Anthony' })
+    const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
+    results.forEach((result, i) => {
+      const box = resizedDetections[i].detection.box
+      const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
       drawBox.draw(canvas)
     })
   }
 }
 
-function recapture() {
-  location.reload()
-  document.querySelector('body').innerHTML = `
-    <h4 id="alert"></h4>
-  <video id="video" width="720" height="560" autoplay muted></video>
 
-        <div id="camera" style="height:auto;width:auto; text-align:center; display:none;"></div>
-  <br> 
-  `
-  startVideo()
+
+function loadLabeledImages() {
+  const labels = ['Black Widow', 'Captain America', 'Captain Marvel', 'Hawkeye', 'Jim Rhodes', 'Thor', 'Tony Stark']
+  return Promise.all(
+    labels.map(async label => {
+      const descriptions = []
+      for (let i = 1; i <= 2; i++) {
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
+        const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+        descriptions.push(detections.descriptor)
+      }
+
+      return new faceapi.LabeledFaceDescriptors(label, descriptions)
+    })
+  )
 }
