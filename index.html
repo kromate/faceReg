@@ -20,5 +20,13 @@
 
   </div>
   
+  <script>
+    fetch('https://firestore.googleapis.com/v1/projects/facereg-809b3/databases/(default)/documents/students/').then(res=> res.json()
+    )
+    .then(data=> console.log(data)
+    ).catch(err=>{
+      console.error(err)
+    })
+  </script>
 </body>
 </html>

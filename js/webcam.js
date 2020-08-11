@@ -49,8 +49,8 @@
       height: 0,
       dest_width: 0,         // size of captured image
       dest_height: 0,        // these default to width/height
-      image_format: 'jpeg',  // image format (may be jpeg or png)
-      jpeg_quality: 90,      // jpeg image quality from 0 (worst) to 100 (best)
+      image_format: 'png',  // image format (may be jpeg or png)
+      jpeg_quality: 100,      // jpeg image quality from 0 (worst) to 100 (best)
       enable_flash: true,    // enable flash fallback,
       force_flash: false,    // force flash mode,
       flip_horiz: false,     // flip image horiz (mirror mode)

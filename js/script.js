@@ -1,4 +1,29 @@
-const video = document.getElementById('video')
+const video = document.getElementById('video');
+const labels = []
+const student = {}
+
+
+db.collection("students").get().then(function (querySnapshot) {
+  console.log('hello')
+  console.log(querySnapshot)
+  querySnapshot.forEach(doc => {
+    console.log('entered')
+    console.log(doc)
+      renderStudents(doc.data());
+  })
+  function renderStudents(data) {
+    let studentImg = storageRef.child(`Students/${data.name}`);
+    studentImg.getDownloadURL().then(function (url) {
+      console.log(data);
+      labels.push(data.name);
+      student[data.name] = url;
+      console.log(labels)
+      console.log(student)
+    });
+  }
+}).catch(err=> console.log(err))
+
+
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -6,6 +31,7 @@ Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
   faceapi.nets.ssdMobilenetv1.loadFromUri('/models')
 ]).then(startVideo)
+
 
 function startVideo() {
   navigator.getUserMedia(
@@ -45,6 +71,7 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     if (resizedDetections.length > 0) {
+      console.log(labels)
       let img = document.querySelector('#img')
       takeSnapShot()
       if (!img) {
@@ -110,12 +137,12 @@ async function scanImg() {
 
 
 function loadLabeledImages() {
-  const labels = ['Black Widow', 'Captain America', 'Captain Marvel', 'Hawkeye', 'Jim Rhodes', 'Thor', 'Tony Stark']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 2; i++) {
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/WebDevSimplified/Face-Recognition-JavaScript/master/labeled_images/${label}/${i}.jpg`)
+        console.log(student[label])
+        const img = await faceapi.fetchImage(student[label])
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
       }
@@ -124,3 +151,7 @@ function loadLabeledImages() {
     })
   )
 }
+
+
+
+
