@@ -12,21 +12,15 @@
     <h1>BEMORE ATTENDANCE APP</h1>
 
     <div class="vest">
-         <a href="./register.html"><button> register </button></a>
-        <a href="./detect.html"><button>Attendance</button></a>
-          <button>Database</button>
-          <button>How to Use</button>
+         <button onclick="location.assign('./register.html')"> register </button>
+        <button onclick="location.assign('./detect.html')">Attendance</button>
+        <button onclick="location.assign('./Adetect.html')">Alt Attendance</button>
+          <button onclick="location.assign('./database.html')">Database</button>
+          <button onclick="location.assign('./howTo.html')">How to Use</button>
     </div>
 
   </div>
   
-  <script>
-    fetch('https://firestore.googleapis.com/v1/projects/facereg-809b3/databases/(default)/documents/students/').then(res=> res.json()
-    )
-    .then(data=> console.log(data)
-    ).catch(err=>{
-      console.error(err)
-    })
-  </script>
+
 </body>
 </html>

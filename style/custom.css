@@ -1,16 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 body {
   background-color: antiquewhite;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   overflow-x: hidden !important;
   font-family: 'Orbitron', sans-serif;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   text-align: center;
+  -webkit-text-stroke-color: rgb(9, 63, 31);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-fill-color: antiquewhite;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+h3 {
+  border: 1px solid rgb(9, 63, 31);
+  text-align: center;
+  -webkit-text-stroke-color: rgb(9, 63, 31);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-fill-color: antiquewhite;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.sect {
+  width: 90vw;
+  border: 1px solid rgb(9, 63, 31);
+  margin: 3px 3px;
+  margin-bottom: 3rem;
+}
+
+li {
+  border: 1px solid rgb(9, 63, 31);
+  margin: 3px 0px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px 3px;
 }
 
 button {
@@ -22,14 +58,23 @@ button {
   background-color: rgb(9, 63, 31);
   color: white;
   font-size: larger;
+  display: block;
+  border: none;
+  box-shadow: 2px 3px 4px 1px black;
+}
+
+button:hover {
+  border: 1px solid rgb(9, 63, 31);
+  background-color: antiquewhite;
+  color: rgb(9, 63, 31);
+}
+
+a {
+  text-decoration: none;
 }
 
 button:focus {
   outline: none;
-}
-
-.vest {
-  width: 19rem;
 }
 
 #btPic {
