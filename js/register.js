@@ -135,7 +135,7 @@ function upload(){
     person.name = name
    
 
-    db.collection("students").doc(name).set({ name: name }).then(function () {
+    db.collection("students").doc(name).set({ name: name, date:[] }).then(function () {
       storageRef.child('Students/' + name).put(blob).on('state_changed', function (snapshot) {
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         // console.log('Upload is ' + progress + '% done');

@@ -55,7 +55,7 @@ takeSnapShot = function () {
   Webcam.snap(function (data_uri) {
     document.querySelector('body').innerHTML =
       `<h4 id="alert"></h4>
-      <img onLoad='scanImg()' class='' id='img' style='margin: 1rem;' src= '${data_uri}' width="70%" height="70%" />`;
+      <img onLoad='scanImg()' class='' id='img' style='margin: 1rem;' src= '${data_uri}' max-width="100%" height="auto" />`;
   });
 }
 var recog;
@@ -113,7 +113,7 @@ async function scanImg() {
   container.style.position = 'relative'
   document.body.append(container)
   const labeledFaceDescriptors = await loadLabeledImages()
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.4)
 
   const canvas = faceapi.createCanvasFromMedia(image)
   document.body.append(canvas)
@@ -123,13 +123,17 @@ async function scanImg() {
   if (detection.length < 1) {
     location.reload()
   } else { 
-    console.log(detection.length)
     const resizedDetections = faceapi.resizeResults(detection, displaySize)
     const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
     results.forEach((result, i) => {
       const box = resizedDetections[i].detection.box
       const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
+      console.log(result._label)
       drawBox.draw(canvas)
+      db.collection("students").doc(`${result._label}`).update({
+        date: firebase.firestore.FieldValue.arrayUnion(`${new Date().toLocaleTimeString()} of ${new Date().toLocaleDateString()}`)
+      }).then(() => { window.location.assign('./index.html')});
+     
     })
   }
 }
