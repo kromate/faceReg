@@ -55,7 +55,7 @@ ul {
   padding: 0px 3px;
 }
 
-button {
+.btn {
   flex: 1;
   width: 20rem;
   height: 3rem;
@@ -64,7 +64,9 @@ button {
   background-color: rgb(9, 63, 31);
   color: white;
   font-size: larger;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   box-shadow: 2px 3px 4px 1px black;
 }

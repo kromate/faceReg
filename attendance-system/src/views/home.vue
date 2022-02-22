@@ -4,11 +4,11 @@
     <h1>BEMORE ATTENDANCE APP</h1>
 
     <div class="vest">
-         <button onclick="location.assign('./register.html')"> register </button>
-        <button onclick="location.assign('./detect.html')">Attendance</button>
-        <button onclick="location.assign('./Adetect.html')">Alt Attendance</button>
-          <button onclick="location.assign('./database.html')">Database</button>
-          <button onclick="location.assign('./howTo.html')">How to Use</button>
+      <router-link to="/about" class="btn">About</router-link>
+      <router-link to="/register"  class="btn">register</router-link>
+      <router-link to="/detect" class="btn" >Attendance</router-link>
+      <router-link to="/database"  class="btn">Database</router-link>
+ 
     </div>
 
   </div>
