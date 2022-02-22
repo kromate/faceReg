@@ -1,4 +1,6 @@
-import {db, storageRef} from "../firebase/init";
+import { db, storageRef } from "../firebase/init";
+
+
 
 const video = document.getElementById('video');
 const labels = []

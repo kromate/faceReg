@@ -9,10 +9,8 @@
 </body>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+import "../firebase/register"
 </script>
 
 <style>
