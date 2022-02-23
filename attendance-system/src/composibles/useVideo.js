@@ -7,3 +7,13 @@ export const takeSnapShot = function () {
       `<img onClick='scanImg()' class='' style='margin: 1rem; display:none' src= '${data_uri}' width="200px" height="200px" />`;
   });
 }
+
+
+
+export function startVideo(video) {
+  navigator.getUserMedia(
+    { video: {} },
+    stream => video.srcObject = stream,
+    err => console.error(err)
+  )
+}

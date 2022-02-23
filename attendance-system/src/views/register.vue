@@ -11,9 +11,11 @@
 import { onMounted } from 'vue'
 
 import {mountWebcam} from '../composibles/useWebcam'
+import {loadModels} from '../composibles/useFaceapi'
 
 
 onMounted(mountWebcam)
+onMounted(loadModels)
 
 
 
