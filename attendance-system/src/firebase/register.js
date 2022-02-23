@@ -1,38 +1,16 @@
 /* eslint-disable */
 
+  
 const faceapi = require('../helper/faceApi.min.js')
-// const Webcam = require('../helper/webcam')
 
 import { db, storageRef } from "../firebase/init";
-import '../helper/faceApi.min.js'
-import {Webcam} from '../helper/webcam'
+
+import { b64toBlob } from "../composibles/useWebcam";
+import { takeSnapShot } from "../composibles/useVideo";
+
 const video = document.getElementById('video')
-const camera = document.getElementById('camera')
 const person = {}
 
-function b64toBlob(b64Data, contentType, sliceSize) {
-  contentType = contentType || '';
-  sliceSize = sliceSize || 512;
-
-  var byteCharacters = atob(b64Data); // window.atob(b64Data)
-  var byteArrays = [];
-
-  for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-    var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-    var byteNumbers = new Array(slice.length);
-    for (var i = 0; i < slice.length; i++) {
-      byteNumbers[i] = slice.charCodeAt(i);
-    }
-
-    var byteArray = new Uint8Array(byteNumbers);
-
-    byteArrays.push(byteArray);
-  }
-
-  var blob = new Blob(byteArrays, { type: contentType });
-  return blob;
-}
 
 //Call the models
 Promise.all([
@@ -51,27 +29,16 @@ function startVideo() {
   )
 }
 
-// CAMERA SETTINGS.
-console.log(Webcam)
-Webcam.set({
-  width: 350,
-  height: 265,
-  image_format: 'png',
-  jpeg_quality: 100
-});
 
-console.log(video);
-console.log(camera);
-Webcam.attach('#camera');
 
 // SHOW THE SNAPSHOT.
-const takeSnapShot = function () {
-  Webcam.snap(function (data_uri) {
-    document.getElementById('snapShot').innerHTML +=
-      `<img onClick='scanImg()' class='' style='margin: 1rem; display:none' src= '${data_uri}' width="200px" height="200px" />`;
-  });
-}
+
 var recog;
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+});
+
 video.addEventListener('play', () => {
   const canvas = faceapi.createCanvasFromMedia(video)
   document.body.append(canvas)
@@ -141,7 +108,7 @@ function upload(){
   var block = ImageURL.split(";");
   var contentType = block[0].split(":")[1];
   var realData = block[1].split(",")[1];
-  var blob = b64toBlob(realData, contentType);
+  var blob = b64toBlob(realData, contentType, 512);
 
   document.querySelector('#upload').addEventListener('click', function(){
     const name = document.querySelector('#name').value
