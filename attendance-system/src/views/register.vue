@@ -13,10 +13,10 @@ import {  onMounted } from 'vue'
 import {mountWebcam} from '../composibles/useWebcam'
 import {loadModels} from '../composibles/useFaceapi'
 
-const video = document.querySelector('#video')
+
 
 onMounted(mountWebcam)
-onMounted(loadModels(video))
+onMounted(loadModels)
 
 
 
