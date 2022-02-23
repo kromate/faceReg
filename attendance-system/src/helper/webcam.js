@@ -6,7 +6,8 @@
 // Copyright (c) 2012 - 2017 Joseph Huckaby
 // Licensed under the MIT License
 
-(function (window) {
+/* eslint-disable */
+
   var _userMedia;
 
   // declare error types
@@ -33,7 +34,7 @@
   FlashError.prototype = new IntermediateInheritor();
   WebcamError.prototype = new IntermediateInheritor();
 
-  var Webcam = {
+  export const Webcam = {
     version: '1.0.25',
 
     // globals
@@ -1049,4 +1050,3 @@
     window.Webcam = Webcam;
   }
 
-}(window));

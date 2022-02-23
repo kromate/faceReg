@@ -1,11 +1,13 @@
 /* eslint-disable */
 
 const faceapi = require('../helper/faceApi.min.js')
+// const Webcam = require('../helper/webcam')
 
 import { db, storageRef } from "../firebase/init";
 import '../helper/faceApi.min.js'
-import  '../helper/webcam'
+import {Webcam} from '../helper/webcam'
 const video = document.getElementById('video')
+const camera = document.getElementById('camera')
 const person = {}
 
 function b64toBlob(b64Data, contentType, sliceSize) {
@@ -50,16 +52,20 @@ function startVideo() {
 }
 
 // CAMERA SETTINGS.
+console.log(Webcam)
 Webcam.set({
   width: 350,
   height: 265,
   image_format: 'png',
   jpeg_quality: 100
 });
+
+console.log(video);
+console.log(camera);
 Webcam.attach('#camera');
 
 // SHOW THE SNAPSHOT.
-takeSnapShot = function () {
+const takeSnapShot = function () {
   Webcam.snap(function (data_uri) {
     document.getElementById('snapShot').innerHTML +=
       `<img onClick='scanImg()' class='' style='margin: 1rem; display:none' src= '${data_uri}' width="200px" height="200px" />`;
