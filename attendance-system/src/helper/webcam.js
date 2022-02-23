@@ -8,6 +8,7 @@
 
 /* eslint-disable */
 
+(function (window) {
   var _userMedia;
 
   // declare error types
@@ -34,7 +35,7 @@
   FlashError.prototype = new IntermediateInheritor();
   WebcamError.prototype = new IntermediateInheritor();
 
-  export const Webcam = {
+  var Webcam = {
     version: '1.0.25',
 
     // globals
@@ -614,7 +615,7 @@
             if (ver) hasFlash = true;
           }
         }
-        catch (e) { ; }
+        catch (e) {  }
       }
 
       return hasFlash;
@@ -1050,3 +1051,4 @@
     window.Webcam = Webcam;
   }
 
+}(window));

@@ -1,4 +1,5 @@
-import { Webcam } from '../helper/webcam'
+// import { Webcam } from '../helper/webcam'
+const Webcam = require('../helper/webcam')
 import { success } from './useWebcam';
 const faceapi = require('../helper/faceApi.min.js')
 
@@ -12,6 +13,7 @@ export const takeSnapShot = function () {
 
 
 export function startVideo(video) {
+  
   navigator.getUserMedia(
     { video: {} },
     stream => video.srcObject = stream,

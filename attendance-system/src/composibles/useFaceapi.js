@@ -4,7 +4,6 @@ import { startVideo } from "./useVideo"
 
 export const loadModels = () => {
     const video = document.querySelector('#video')
-    console.log(video)
     Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('./models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('./models'),

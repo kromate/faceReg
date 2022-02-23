@@ -1,7 +1,11 @@
-import { Webcam } from '../helper/webcam'
+// import { Webcam } from '../helper/webcam'
+const Webcam = require('../helper/webcam')
 import { db, storageRef } from "../firebase/init";
 
-const person = {name:''}
+const person = { name: '' }
+
+console.log(Webcam);
+
 
 export const mountWebcam = () => {
    Webcam.set({

@@ -12,13 +12,13 @@ import {  onMounted } from 'vue'
 
 import {mountWebcam} from '../composibles/useWebcam'
 import {loadModels} from '../composibles/useFaceapi'
+import {ScanFace} from '../composibles/useVideo'
 
 
 
 onMounted(mountWebcam)
 onMounted(loadModels)
-
-
+onMounted(ScanFace)
 
 
 
