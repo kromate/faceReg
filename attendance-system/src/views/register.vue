@@ -8,14 +8,15 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import {  onMounted } from 'vue'
 
 import {mountWebcam} from '../composibles/useWebcam'
 import {loadModels} from '../composibles/useFaceapi'
 
+const video = document.querySelector('#video')
 
 onMounted(mountWebcam)
-onMounted(loadModels)
+onMounted(loadModels(video))
 
 
 
@@ -23,6 +24,3 @@ onMounted(loadModels)
 
 </script>
 
-<style>
-
-</style>
