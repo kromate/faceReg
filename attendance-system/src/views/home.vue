@@ -1,7 +1,7 @@
 <template>
     <div class="content">
     
-    <h1>BEMORE ATTENDANCE APP</h1>
+    <h1>FACE ATTENDANCE APP</h1>
 
     <div class="vest">
       <router-link to="/about" class="btn">About</router-link>
