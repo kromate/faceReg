@@ -1,5 +1,18 @@
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+!function(){"use strict";try{self["workbox:sw:4.3.1"]&&_()}catch(t){}const t="https://storage.googleapis.com/workbox-cdn/releases/4.3.1",e={backgroundSync:"background-sync",broadcastUpdate:"broadcast-update",cacheableResponse:"cacheable-response",core:"core",expiration:"expiration",googleAnalytics:"offline-ga",navigationPreload:"navigation-preload",precaching:"precaching",rangeRequests:"range-requests",routing:"routing",strategies:"strategies",streams:"streams"};self.workbox=new class{constructor(){return this.v={},this.t={debug:"localhost"===self.location.hostname,modulePathPrefix:null,modulePathCb:null},this.s=this.t.debug?"dev":"prod",this.o=!1,new Proxy(this,{get(t,s){if(t[s])return t[s];const o=e[s];return o&&t.loadModule(`workbox-${o}`),t[s]}})}setConfig(t={}){if(this.o)throw new Error("Config must be set before accessing workbox.* modules");Object.assign(this.t,t),this.s=this.t.debug?"dev":"prod"}loadModule(t){const e=this.i(t);try{importScripts(e),this.o=!0}catch(s){throw console.error(`Unable to import module '${t}' from '${e}'.`),s}}i(e){if(this.t.modulePathCb)return this.t.modulePathCb(e,this.t.debug);let s=[t];const o=`${e}.${this.s}.js`,r=this.t.modulePathPrefix;return r&&""===(s=r.split("/"))[s.length-1]&&s.splice(s.length-1,1),s.push(o),s.join("/")}}}();
+//# sourceMappingURL=workbox-sw.js.map
 
+// import "./models" 
+const models = [
+  "./models/face_expression_model-shard1", "./models/face_expression_model-weights_manifest.json",
+  "./models/face_landmark_68_model-shard1", "./models/face_landmark_68_model-weights_manifest.json",
+  "./models/face_landmark_68_tiny_model-shard1", "./models/face_landmark_68_tiny_model-weights_manifest.json",
+  "./models/face_recognition_model-shard1", "./models/face_recognition_model-shard2",
+  "./models/face_recognition_model-weights_manifest.json", "./models/mtcnn_model-shard1",
+  "./models/mtcnn_model-weights_manifest.json", "./models/ssd_mobilenetv1_model-shard1",
+  "./models/ssd_mobilenetv1_model-shard2", "./models/ssd_mobilenetv1_model-weights_manifest.json",
+  "./models/tiny_face_detector_model-shard1", "./models/tiny_face_detector_model-weights_manifest.json",
+
+]
 
 const staticCacheName = 'site-static-v4';
 const dynamicCacheName = 'site-dynamic-v4';
@@ -12,7 +25,7 @@ self.addEventListener('install', (evt) => {
     evt.waitUntil(
       caches.open(staticCacheName).then(cache => {
         // console.log('caching stuff');
-        cache.addAll(asset)
+        cache.addAll(models)
       }).catch((err)=>{
         console.log(err)
       })

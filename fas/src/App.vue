@@ -1,14 +1,15 @@
+<script setup >
+import Loader from './components/Loader.vue'
+import {loadingPage} from '@/composibles/useState'
+</script>
+
+
 <template>
-  <router-view></router-view>
+<loader v-if="loadingPage"/>
+  <router-view v-else></router-view>
 </template>
 
-<script>
 
-export default {
-  name: 'App',
-
-}
-</script>
 
 <style>
 #app {
