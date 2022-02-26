@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+body {
+  background-color: antiquewhite;
+  text-align: center;
+  overflow-x: hidden !important;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stud {
+  font-weight: 500;
+  color: rgb(9, 63, 31);
+  font-size: larger;
+}
+
+h1 {
+  text-align: center;
+  -webkit-text-stroke-color: rgb(9, 63, 31);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-fill-color: antiquewhite;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+h3 {
+  border: 1px solid rgb(9, 63, 31);
+  text-align: center;
+  -webkit-text-stroke-color: rgb(9, 63, 31);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-fill-color: antiquewhite;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.sect {
+  width: 90vw;
+  border: 1px solid rgb(9, 63, 31);
+  margin: 3px 3px;
+  margin-bottom: 3rem;
+}
+
+li {
+  border: 1px solid rgb(9, 63, 31);
+  margin: 3px 0px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px 3px;
+}
+
+.btn {
+  flex: 1;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5rem;
+  margin: 1.5rem;
+  background-color: rgb(9, 63, 31);
+  color: white;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 2px 3px 4px 1px black;
+}
+
+button:hover {
+  border: 1px solid rgb(9, 63, 31);
+  background-color: antiquewhite;
+  color: rgb(9, 63, 31);
+}
+
+a {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+#btPic {
+  margin: 2rem;
+}
+
+#camera {
+  margin-top: 2rem;
+  box-shadow: 0 35px 20px #777;
+}
+
+details {
+  padding: 15px;
+  background-color: #f6f7f8;
+  margin-bottom: 20px;
+}
+
+summary {
+  cursor: pointer;
+  outline: none;
+}
+
+summary::-webkit-details-marker {
+  color: #fff;
+  background-color: #000;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:before {
+  content: "\2714";
+  /* the new icon */
+  color: #696f7c;
+  margin-right: 5px;
+}
+
+summary:before {
+  content: "\25B8";
+  /* unicode character of the litle triangle  */
+  color: #000;
+  margin-right: 5px;
+}
