@@ -1,13 +1,16 @@
-<script setup >
-import Loader from './components/Loader.vue'
-import {loadingPage} from '@/composibles/useNotification'
-</script>
+
 
 
 <template>
-	<loader v-if="loadingPage"/>
+	<loader v-if=" active"/>
 	<router-view v-else></router-view>
 </template>
 
 
 
+<script setup  >
+import Loader from './components/Loader.vue'
+import {useLoading} from '@/composibles/useNotification'
+
+const { active} = useLoading()
+</script>
