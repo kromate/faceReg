@@ -1,5 +1,5 @@
 <template>
-  database
+	database
 </template>
 
 <script>

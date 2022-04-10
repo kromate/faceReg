@@ -1,6 +1,6 @@
 <template>
- detect
- </template>
+	detect
+</template>
 
 <script>
 export default {

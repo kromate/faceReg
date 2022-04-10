@@ -18,3 +18,7 @@ export const useLoading = () => {
 	}
 	return {...loadingState, openLoading, closeLoading}
 }
+
+export const closeCacheLoader = () => {
+	 document.querySelector<HTMLElement>('.cache-loader')!.style.display = 'none'
+}

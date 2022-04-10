@@ -1,5 +1,5 @@
 <template>
-	<div class=" fixed mx-auto inset-0 pt-24">
+	<div class="loader fixed mx-auto inset-0 pt-24" v-if="active">
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="280 250 500 500">
 			<g>
 				<svg x="360.66" y="301">
@@ -127,14 +127,14 @@
 			></path>
 		</svg>
 
-		<p class="block">Caching Data</p>
+		<p class="block">{{message}}</p>
 	</div>
 </template>
 
-<script>
-export default {
+<script setup>
+import {useLoading} from '@/composibles/useNotification'
 
-}
+const {active, message} = useLoading()
 </script>
 
 
