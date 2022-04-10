@@ -2,9 +2,10 @@ import { ref } from 'vue';
 
 
 
-const loadingState = {
+export const loadingState = {
 	active: ref(false),
-	message: ref('')
+	message: ref(''),
+	cacheLoading: ref(true)
 }
 
 export const useLoading = () => {
@@ -20,5 +21,6 @@ export const useLoading = () => {
 }
 
 export const closeCacheLoader = () => {
-	 document.querySelector<HTMLElement>('.cache-loader')!.style.display = 'none'
+	document.querySelector<HTMLElement>('.cache-loader')!.style.display = 'none'
+	loadingState.cacheLoading.value = false
 }

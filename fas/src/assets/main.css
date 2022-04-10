@@ -11,83 +11,10 @@ body {
   font-family: sans-serif;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.stud {
-  font-weight: 500;
-  color: rgb(9, 63, 31);
-  font-size: larger;
-}
-
-h1 {
-  text-align: center;
-  -webkit-text-stroke-color: rgb(9, 63, 31);
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-fill-color: antiquewhite;
-  font-size: 3rem;
-  margin: 1rem;
-}
-
-h3 {
-  border: 1px solid rgb(9, 63, 31);
-  text-align: center;
-  -webkit-text-stroke-color: rgb(9, 63, 31);
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-fill-color: antiquewhite;
-  font-size: 2rem;
-  margin: 1rem;
-}
-
-.sect {
-  width: 90vw;
-  border: 1px solid rgb(9, 63, 31);
-  margin: 3px 3px;
-  margin-bottom: 3rem;
-}
-
-li {
-  border: 1px solid rgb(9, 63, 31);
-  margin: 3px 0px;
-}
-
-ul {
-  list-style: none;
-  padding: 0px 3px;
-}
-
-.btn {
-  flex: 1;
-  width: 20rem;
-  height: 3rem;
-  border-radius: 5rem;
-  margin: 1.5rem;
-  background-color: rgb(9, 63, 31);
-  color: white;
-  font-size: larger;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  box-shadow: 2px 3px 4px 1px black;
-}
-
-button:hover {
-  border: 1px solid rgb(9, 63, 31);
-  background-color: antiquewhite;
-  color: rgb(9, 63, 31);
-}
-
-a {
-  text-decoration: none;
-}
-
-button:focus {
-  outline: none;
+@layer components{
+  .btn{
+    @apply border px-5 py-3
+  }
 }
 
 #btPic {

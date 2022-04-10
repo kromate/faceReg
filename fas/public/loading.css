@@ -43,6 +43,7 @@ svg path {
 }
 
 .cache-loader{
+ 
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -57,5 +58,7 @@ svg path {
     bottom: 0px;
     left: 0px;
         position: fixed;
+        z-index: 10000000000000;
+         display: none !important;
         
 }
