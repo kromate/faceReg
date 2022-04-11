@@ -15,12 +15,20 @@ body {
 
 
 
-canvas, video{
+canvas{
   width: 500px;
   height: 500px;
   position: absolute;
-  top: -125px;
-  left: -125px;
+  top: 0;
+  /* left: -125px; */
+  margin-inline: auto;
+  max-width: 89%;
+}
+video{
+  width: 500px;
+  height: 500px;
+max-width: 89%;
+  margin-inline: auto;
 }
 @media screen and (max-width:640px) {
   canvas, video{
