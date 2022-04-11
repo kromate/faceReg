@@ -13,7 +13,7 @@
 									<h1
 										class="text-4xl text-center sm:text-left font-extrabold  sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl outline tracking-wide"
 									>
-										<span class="block xl:inline">Face <br> Attendance <br> System</span>
+										<span class="block xl:inline"> <b class="font-bold text-slate-400">F</b>ace <br> <b class="font-bold text-slate-400">A</b>ttendance <br> <b class="font-bold text-slate-400">S</b>ystem</span>
 									
 									</h1>
 									<p
@@ -23,8 +23,8 @@
 									</p>
 									<div class="relative flex flex-col sm:flex-row gap-4 flex-wrap font-extralight ">
 										<router-link
-											to="#_"
-											class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
+											to="/About"
+											class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
 										>
 											About FAS
 											<svg
@@ -43,7 +43,7 @@
 										</router-link>
 										<router-link
 											to="#_"
-											class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
+											class="flex items-center w-full px-6 py-3  text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
 										>
 											Register
 											<svg
@@ -102,11 +102,32 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="w-full md:w-1/2">
 								<div
-									class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+									class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl flex flex-col justify-center items-center"
 								>
 									<face class="mx-auto"/>
+
+							
+								</div>
+								<div
+									class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-2xl flex flex-col justify-center items-center mt-5"
+								>
+									<div class="flex gap-4 text-3xl mt-5">
+										<a href="https://github.com/kromate/faceReg" target="_blank" rel="noopener noreferrer">
+											<i class="lab la-github"></i>
+										</a>
+										<a href="https://twitter.com/kromate_24" target="_blank" rel="noopener noreferrer">
+											<i class="lab la-twitter "></i>
+										</a>
+										<a href="https://www.youtube.com/channel/UChUl2w6Nl_ckCYSPaTUBYRQ" target="_blank" rel="noopener noreferrer">
+											<i class="lab la-youtube"></i>
+										</a>
+									
+									</div>
+
+							
 								</div>
 							</div>
 						</div>
