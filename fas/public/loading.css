@@ -12,13 +12,15 @@ svg {
   bottom: 0;
 
 }
-svg path {
+svg.animate path {
   stroke: #242318;
   stroke-width: 1;
   stroke-dasharray: 1600;
   stroke-dashoffset: 0;
   animation: everydayBK 5s infinite linear forwards;
 }
+
+
 
 /* @keyframes draw {
   to {
@@ -38,7 +40,7 @@ svg path {
   50%{
     fill:rgba(255,255,255,0);}
   100%{opacity: 10;
-    fill:rgba(255, 255, 255, 0.219);
+    fill:rgba(255, 255, 255, 0);
     stroke-dashoffset: 0;}
 }
 

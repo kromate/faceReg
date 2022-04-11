@@ -134,5 +134,11 @@ export default {
 </script>
 
 <style>
-
+svg path {
+  stroke: #250b83;
+  stroke-width: 2;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 0;
+  animation: everydayBK 5s 1 linear forwards;
+}
 </style>
