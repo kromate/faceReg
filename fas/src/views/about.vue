@@ -6,7 +6,7 @@
 			About FAS
 		</h1>
 		<div
-			class="w-full p-5 max-w-[40rem] h-auto overflow-hidden md:text-lg rounded-md shadow-xl sm:rounded-2xl flex flex-col justify-center items-center mt-5"
+			class="border w-full p-5 max-w-[40rem] h-auto overflow-hidden md:text-lg rounded-md shadow-xl sm:rounded-2xl flex flex-col justify-center items-center mt-5"
 		>
 			Face Attendance System (FAS for short) is a face recognition software that  saves your face to storage in Registration mode and then compares it to other saved faces in attendance mode. Each successful attendance mode session adds an entry to the attendances sheet table
 
