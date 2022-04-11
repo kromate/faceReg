@@ -42,7 +42,7 @@
 											</svg>
 										</router-link>
 										<router-link
-											to="#_"
+											to="/register"
 											class="flex items-center w-full px-6 py-3  text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
 										>
 											Register

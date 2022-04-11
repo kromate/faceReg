@@ -1,8 +1,8 @@
 <template>
 	<h4 id="alert"></h4>
-	<video id="video" ref="video" width="720" height="560" autoplay muted></video>
+	<video id="video" ref="video" width="720" height="560" autoplay muted class="mx-auto"></video>
 
-	<div id="camera" ref="camera" style="height:auto;width:auto; text-align:center; display:none;"></div>
+	<div id="camera" ref="camera" class="h-auto w-auto text-center hidden"></div>
 	<br>
 	<p id="snapShot"></p>
 </template>

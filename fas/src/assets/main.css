@@ -13,6 +13,20 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+canvas, video{
+  margin-inline: auto;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  padding: 0px 4rem;
+ border-radius: 50%;
+  display: inline-block;
+}
+@media screen and (max-width:640px) {
+  canvas, video{
+     padding: 0px 1rem;
+  }
+}
 @layer components{
   .btn{
     @apply border px-5 py-3

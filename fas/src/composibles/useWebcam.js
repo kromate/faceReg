@@ -50,25 +50,15 @@ export function b64toBlob(b64Data, contentType, sliceSize) {
 export function success() {
 	// setTimeout(home, 5000)
 	const image = document.querySelectorAll('img');
-	image.forEach(pushImg)
-	//push each src into an obj
-	function pushImg(img, index){
+	image.forEach((img, index) => {
 		person[index] = img.src;
-	}
-
+	})
 	naming()
 }
 
 
 function naming(){
-	document.querySelector('body').innerHTML = `
-    <div class="content">
-    <h2>Input Your Full Name Below and Click the Upload button to complete registration</h2>
-    <input id='name' type='text'>
-    <h5 id='status'></h5>
-    <button id='upload'>Upload</button>
-  </div>
-  `
+
 
 	upload()
 }

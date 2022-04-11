@@ -2,7 +2,6 @@
   // <script>
   // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyCJPvMODeO5JuJe_VlUPZ7eF4tEqIoi1L8",
     authDomain: "facereg-809b3.firebaseapp.com",
     databaseURL: "https://facereg-809b3.firebaseio.com",
     projectId: "facereg-809b3",
