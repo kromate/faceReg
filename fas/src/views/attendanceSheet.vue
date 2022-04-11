@@ -1,5 +1,5 @@
 <template>
-	detect
+	<div>database</div>
 </template>
 
 <script>

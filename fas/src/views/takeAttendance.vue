@@ -1,5 +1,5 @@
 <template>
-	database
+	<div>Attendance</div>
 </template>
 
 <script>

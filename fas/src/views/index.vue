@@ -61,7 +61,7 @@
 											</svg>
 										</router-link>
 										<router-link
-											to="#_"
+											to="/takeAttendance"
 											class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
 										>
 											Take Attendance
@@ -80,7 +80,7 @@
 											</svg>
 										</router-link>
 										<router-link
-											to="#_"
+											to="/attendanceSheet"
 											class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
 										>
 											Attendance sheet
