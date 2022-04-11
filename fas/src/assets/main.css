@@ -13,15 +13,14 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 canvas, video{
-  margin-inline: auto;
-  position: absolute;
   width: 500px;
   height: 500px;
-  left: 0; 
-  right: 0; 
- /* border-radius: 9999px; */
-  box-sizing: border-box;
+  position: absolute;
+  top: -125px;
+  left: -125px;
 }
 @media screen and (max-width:640px) {
   canvas, video{
