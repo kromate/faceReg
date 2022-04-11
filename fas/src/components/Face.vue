@@ -135,10 +135,11 @@ export default {
 
 <style>
 svg path {
-  stroke: #250b83;
+  stroke: #000000;
   stroke-width: 2;
   stroke-dasharray: 1600;
   stroke-dashoffset: 0;
-  animation: everydayBK 5s 1 linear forwards;
+  animation: everydayBK 4s 1 linear forwards;
 }
+
 </style>
