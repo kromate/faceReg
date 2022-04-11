@@ -144,7 +144,7 @@ import Face from '../components/Face.vue';
 
 </script>
 
-<style scoped>
+<style >
 .outline{
   line-height: 1.2;
   text-decoration: none;
