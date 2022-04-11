@@ -39,25 +39,20 @@ export const ScanFace = () => {
 			faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 			faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 			const count = document.getElementById('snapShot').childElementCount;
+			console.log(resizedDetections)
 			if (resizedDetections.length == 1) {
-				console.log('snap')
 				takeSnapShot()
-				console.log(count)
 				document.querySelector('#alert').style.color = 'green';
 				document.querySelector('#alert').innerHTML = `Face found, Captured ${count} out of 3`
 				if (count == 1) {
-					console.log('done')
 					clearInterval(recog)
 					success()
 				}
 
 			} else {
-				console.log('adjust your face');
 				document.querySelector('#alert').style.color= 'red';
 				document.querySelector('#alert').innerHTML = `Can't find a Face, Please Adjust <br>  Captured ${count} out of 3`
-				console.log(document.getElementById('snapShot').childElementCount);
 
-      
 			}
 		}, 1000)
 	});   

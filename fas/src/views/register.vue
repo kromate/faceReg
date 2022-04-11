@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h4 id="alert"></h4>
+		<h4 id="alert" class="shadow-2xl w-auto mx-auto outline"></h4>
 
 	
 		<div class="web-cam">
