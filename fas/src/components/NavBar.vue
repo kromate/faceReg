@@ -6,7 +6,7 @@
 			<div class="flex items-center justify-start w-1/4 h-full pr-4">
 				<router-link to="/" class="py-4 md:py-0 flex items-center">
 					<span class="p-1 text-2xl font-black leading-none text-gray-900"
-					><span>Face Attendance System</span><span class="text-indigo-600">.</span></span
+					><span>FAS</span></span
 					>
 				</router-link>
 			</div>
