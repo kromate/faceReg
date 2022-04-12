@@ -1,10 +1,10 @@
 // import { Webcam } from '../helper/webcam'
 const Webcam = require('../helper/webcam')
-import { db, storageRef } from '../firebase/init';
-
+// import { db, storageRef } from '../firebase/init';
+import {useStorage} from '@vueuse/core'
 const person = { name: '' }
 
-console.log(Webcam);
+useStorage()
 
 
 export const mountWebcam = () => {
@@ -19,31 +19,6 @@ export const mountWebcam = () => {
 }
 
 
-
-
-export function b64toBlob(b64Data, contentType, sliceSize) {
-	contentType = contentType || '';
-	sliceSize = sliceSize || 512;
-
-	const byteCharacters = atob(b64Data); // window.atob(b64Data)
-	const byteArrays = [];
-
-	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-		const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-		const byteNumbers = new Array(slice.length);
-		for (let i = 0; i < slice.length; i++) {
-			byteNumbers[i] = slice.charCodeAt(i);
-		}
-
-		const byteArray = new Uint8Array(byteNumbers);
-
-		byteArrays.push(byteArray);
-	}
-
-	const blob = new Blob(byteArrays, { type: contentType });
-	return blob;
-}
 
 
 //called after the Images have been taken
@@ -103,5 +78,5 @@ function upload(){
 	})
 }
 function home() {
-	window.location.assign('./index.html')
+	location.assign('/')
 }

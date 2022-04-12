@@ -138,8 +138,8 @@
 	</DefaultLayout>
 </template>
 
-<script lang="ts" setup>
-import NavBar from '@/components/NavBar.vue';
+<script  setup>
+import NavBar from '../components/NavBar.vue';
 import Face from '../components/Face.vue';
 
 </script>
