@@ -1,5 +1,7 @@
 import { useStorage } from '@vueuse/core';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAlert } from './useNotification';
 
 export const globalState = {
 	registerState: ref(0),
@@ -22,6 +24,7 @@ export const highestDetection = () => {
 }
 
 export const saveCapturedUser = () => {
+	
 	const choosen = highestDetection() as any
 	 savedUsers.push({
 		name: globalState.CapturedUserName.value,
@@ -30,7 +33,8 @@ export const saveCapturedUser = () => {
 		 mood: choosen.mood,
 		date:[]
 	 })
+	useAlert().openAlert(`User: ${globalState.CapturedUserName.value} has been saved`)
 	
-	location.assign('/')
+
 }
 

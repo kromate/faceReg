@@ -4,10 +4,10 @@
 			v-if="active"
 			class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4 bg-[aliceblue] z-[150] text w-[22rem]"
 		>
-			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0" />
+		
 			<svg
 				@click="closeAlert"
-				class="w-6 h-6 text-gray-700 absolute right-1 top-0 cursor-pointer text-xl"
+				class="w-6 h-6 text-gray-700 absolute right-1 top-1 cursor-pointer text-xl ml-auto"
 				fill="none"
 				stroke="currentColor"
 				viewBox="0 0 24 24"

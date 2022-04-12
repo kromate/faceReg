@@ -1,23 +1,27 @@
 <template>
-	<div v-if="globalState.registerState.value == 0">
-		<h4 id="alert" class="shadow-2xl w-auto mx-auto outline"></h4>
-		<div class="web-cam">
-			<video id="video" ref="video" width="500" height="500" autoplay muted class=""></video>
+	<DefaultLayout>
+		<div v-if="globalState.registerState.value == 0">
+			<h4 id="alert" class="shadow-2xl w-auto mx-auto outline"></h4>
+			<div class="web-cam">
+				<video id="video" ref="video" width="500" height="500" autoplay muted class=""></video>
+			</div>
+			<div id="camera" ref="camera" class="h-auto w-auto text-center hidden"></div>
+			<br>
+			<p id="snapShot"></p>
 		</div>
-		<div id="camera" ref="camera" class="h-auto w-auto text-center hidden"></div>
-		<br>
-		<p id="snapShot"></p>
-	</div>
-	<SavePerson v-else/>
+		<SavePerson v-else/>
+	</DefaultLayout>
 </template>
 
 <script setup>
 import SavePerson from '../components/SavePerson.vue'
+import DefaultLayout from '../layout/defaultLayout.vue'
 import {  onMounted } from 'vue'
 import {mountWebcam} from '../composibles/useWebcam'
 import {loadModels} from '../composibles/useFaceapi'
 import {ScanFace} from '../composibles/useVideo'
 import {globalState} from '../composibles/useState'
+
 
 onMounted(()=>{
 	globalState.registerState.value = 0
