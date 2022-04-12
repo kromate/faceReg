@@ -22,7 +22,9 @@
 
 <script setup>
 import { highestDetection, globalState, saveCapturedUser } from '../composibles/useState';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const face = highestDetection()
 const save = async()=>{
 	await saveCapturedUser()

@@ -1,7 +1,7 @@
 import { useStorage } from '@vueuse/core';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { useAlert } from './useNotification';
+const Webcam = require('../helper/webcam')
 
 export const globalState = {
 	registerState: ref(0),
@@ -34,7 +34,7 @@ export const saveCapturedUser = () => {
 		date:[]
 	 })
 	useAlert().openAlert(`User: ${globalState.CapturedUserName.value} has been saved`)
-	
+	Webcam.reset()
 
 }
 
