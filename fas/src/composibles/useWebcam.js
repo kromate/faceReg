@@ -1,10 +1,8 @@
-// import { Webcam } from '../helper/webcam'
 const Webcam = require('../helper/webcam')
-// import { db, storageRef } from '../firebase/init';
-import {useStorage} from '@vueuse/core'
-const person = { name: '' }
+import { useStorage } from '@vueuse/core'
 
-useStorage()
+
+const People = useStorage('People', [])
 
 
 export const mountWebcam = () => {
@@ -20,31 +18,21 @@ export const mountWebcam = () => {
 
 
 
-
-//called after the Images have been taken
 export function success() {
 	// setTimeout(home, 5000)
 	const image = document.querySelectorAll('img');
 	image.forEach((img, index) => {
 		person[index] = img.src;
 	})
-	naming()
-}
-
-
-function naming(){
-
-
 	upload()
 }
 
+
+
+
 function upload(){
 	const ImageURL = person[0]
-	console.log(person[0]);
-	const block = ImageURL.split(';');
-	const contentType = block[0].split(':')[1];
-	const realData = block[1].split(',')[1];
-	const blob = b64toBlob(realData, contentType, 512);
+
 
 	document.querySelector('#upload').addEventListener('click', function(){
 		const name = document.querySelector('#name').value

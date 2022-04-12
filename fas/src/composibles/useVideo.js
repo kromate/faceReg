@@ -1,13 +1,21 @@
 // import { Webcam } from '../helper/webcam'
 const Webcam = require('../helper/webcam')
+import { globalState } from './useState';
 import { success } from './useWebcam';
 const faceapi = require('../helper/faceApi.min.js')
 
-export const takeSnapShot = function () {
+
+export const saveFace = function (faceData) {
+	console.log(faceData);
 	Webcam.snap(function (data_uri) {
-		document.getElementById('snapShot').innerHTML +=
-      `<img onClick='scanImg()' class='' style='margin: 1rem; display:none' src= '${data_uri}' width="200px" height="200px" />`;
+		globalState.capturedFaces.value.push(
+			{
+				img: data_uri,
+			}
+		)
 	});
+
+	// console.log(globalState.capturedFaces.value)
 }
 
 
@@ -25,8 +33,6 @@ export const ScanFace = () => {
 	const video = document.querySelector('#video')
 	let recog
 	video.addEventListener('play', () => {
-    
-		console.log('working ooo')
 		const canvas = faceapi.createCanvasFromMedia(video)
 		document.body.append(canvas)
 		const displaySize = { width: video.width, height: video.height }
@@ -38,13 +44,12 @@ export const ScanFace = () => {
 			faceapi.draw.drawDetections(canvas, resizedDetections)
 			faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 			faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-			const count = document.getElementById('snapShot').childElementCount;
-			console.log(resizedDetections)
+			const count = globalState.capturedFaces.value.length
 			if (resizedDetections.length == 1) {
-				takeSnapShot()
+				saveFace(resizedDetections)
 				document.querySelector('#alert').style.color = 'green';
 				document.querySelector('#alert').innerHTML = `Face found, Captured ${count} out of 3`
-				if (count == 1) {
+				if (count >= 3) {
 					clearInterval(recog)
 					success()
 				}
