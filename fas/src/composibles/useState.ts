@@ -1,9 +1,13 @@
+import { useStorage } from '@vueuse/core';
 import { ref } from 'vue';
 
 export const globalState = {
 	registerState: ref(0),
-	capturedFaces: ref([])
+	capturedFaces: ref([]),
+	CapturedUserName: ref('')
 }
+
+export const savedUsers = useStorage('savedUsers', []).value as any
 
 export const highestDetection = () => {
 	let highestDetection = 0, pos = 0
@@ -16,3 +20,15 @@ export const highestDetection = () => {
     
 	return globalState.capturedFaces.value[pos]
 }
+
+export const saveCapturedUser = () => {
+	const choosen = highestDetection() as any
+	 savedUsers.push({
+		name: globalState.CapturedUserName.value,
+		detection: choosen.detection,
+		img: choosen.img,
+		mood: choosen.mood
+	})
+	location.assign('/')
+}
+
