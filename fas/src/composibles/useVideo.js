@@ -6,7 +6,7 @@ const faceapi = require('../helper/faceApi.min.js')
 
 
 export const saveFace = function (faceData) {
-	console.log(faceData);
+	console.log(faceData[0]);
 	Webcam.snap(function (data_uri) {
 		globalState.capturedFaces.value.push(
 			{
@@ -46,7 +46,7 @@ export const ScanFace = () => {
 			faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 			const count = globalState.capturedFaces.value.length
 			if (resizedDetections.length == 1) {
-				saveFace(resizedDetections)
+				if(count < 3)saveFace(resizedDetections)
 				document.querySelector('#alert').style.color = 'green';
 				document.querySelector('#alert').innerHTML = `Face found, Captured ${count} out of 3`
 				if (count >= 3) {
