@@ -27,8 +27,10 @@ export const saveCapturedUser = () => {
 		name: globalState.CapturedUserName.value,
 		detection: choosen.detection,
 		img: choosen.img,
-		mood: choosen.mood
-	})
+		 mood: choosen.mood,
+		date:[]
+	 })
+	
 	location.assign('/')
 }
 

@@ -127,7 +127,6 @@
 									
 									</div>
 
-							
 								</div>
 							</div>
 						</div>
@@ -141,6 +140,7 @@
 <script  setup>
 import NavBar from '../components/NavBar.vue';
 import Face from '../components/Face.vue';
+import DefaultLayout from '../layout/defaultLayout.vue'
 
 </script>
 
