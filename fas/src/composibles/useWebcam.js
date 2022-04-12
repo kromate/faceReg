@@ -17,19 +17,6 @@ export const mountWebcam = () => {
 }
 
 
-
-export function success() {
-	// setTimeout(home, 5000)
-	const image = document.querySelectorAll('img');
-	image.forEach((img, index) => {
-		person[index] = img.src;
-	})
-	upload()
-}
-
-
-
-
 function upload(){
 	const ImageURL = person[0]
 

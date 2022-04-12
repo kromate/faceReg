@@ -8,14 +8,12 @@
 		<br>
 		<p id="snapShot"></p>
 	</div>
-	<div v-else>
-
-	</div>
+	<SavePerson v-else/>
 </template>
 
 <script setup>
+import SavePerson from '../components/SavePerson.vue'
 import {  onMounted } from 'vue'
-
 import {mountWebcam} from '../composibles/useWebcam'
 import {loadModels} from '../composibles/useFaceapi'
 import {ScanFace} from '../composibles/useVideo'
