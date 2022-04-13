@@ -1,48 +1,62 @@
 <template>
 	<div class="p-4 mt-12">
 		<div>database</div>
-		<div class="container overflow-x-auto mt-24 mx-auto grid place-items-center">
-			<table class="neumorphic">
-				<thead>
-					<tr>
-						<th>Column 1</th>
-						<th>Column 2</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-					</tr>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-					</tr>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-					</tr>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-					</tr>
-					<tr>
-						<td>Cell 1</td>
-						<td>Cell 2</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<Table
+			class="w-full"
+			:loading="loading"
+			:headers="headers"
+			:table-data="data"
+			:new-design="true"
+		>
+			<template #item="{ item }">
+				<div v-if="item.status">
+					<Badge name="success" :index="0"/>
+				</div>
+		
+			</template>
+		</Table>
 	</div>
 	
 
 	
 </template>
 
-<script>
-export default {
+<script setup>
+import Table from '../components/Table.vue'
 
-}
+const data = [
+	{
+		'Email': 'ifeoluwa@gmail.com',
+		'number': '07030574218',
+		'customerName': 'Ifeoluwa Mibiola',
+		'type': 'Individual',
+	},
+	{
+		'Email': 'ifeoluwa@gmail.com',
+		'number': '07030574218',
+		'customerName': 'Ifeoluwa Mibiola',
+		'type': 'Business',
+	},
+	{
+		'Email': 'ifeoluwa@gmail.com',
+		'number': '07030574218',
+		'customerName': 'Ifeoluwa Mibiola',
+		'type': 'Individual',
+	},
+	{
+		'Email': 'ifeoluwa@gmail.com',
+		'number': '07030574218',
+		'customerName': 'Ifeoluwa Mibiola',
+		'type': 'Business',
+	},
+]
+
+const headers = [
+	{ text: 'Name ', value: 'customerName' },
+	{ text: 'Email Address', value: 'Email' },
+	{ text: 'Phone Number', value: 'number' },
+	{ text: 'TYPE', value: 'type' },
+]
 </script>
 
 <style scoped>
