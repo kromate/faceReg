@@ -115,7 +115,7 @@ onMounted(()=>{
 }
 
 .squares li {
-  background-color: #ebedf0;
+  background-color: #ffffff;
 }
 
 .squares li[data-level="1"] {
@@ -127,7 +127,7 @@ onMounted(()=>{
 }
 
 .squares li[data-level="3"] {
-  background-color: #196127;
+  background-color: #084b15;
 }
 
 </style>
