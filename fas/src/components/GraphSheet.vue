@@ -34,20 +34,18 @@ import { onMounted } from 'vue';
 
 
 onMounted(()=>{
-	// const squares = document.querySelector('.squares');
-	// console.log(squares);
-	// for (let i = 1; i < 365; i++) {
-	// 	const level = Math.floor(Math.random() * 3);  
-	// 	squares.insertAdjacentHTML('beforeend', `<li data-level="${level}"></li>`);
-	// }
+	const squares = document.querySelector('.squares');
+
+	for (let i = 1; i < 365; i++) {
+		const level = Math.floor(Math.random() * 3);  
+		squares.insertAdjacentHTML('beforeend', `<li data-level="${level}"></li>`);
+	}
 })
 
 </script>
 
-<style scoped >
-/* Article - https://bitsofco.de/github-contribution-graph-css-grid/ */
+<style >
 
-/* Grid-related CSS */
 
 :root {
   --square-size: 15px;
@@ -55,32 +53,40 @@ onMounted(()=>{
   --week-width: calc(var(--square-size) + var(--square-gap));
 }
 
-.months { grid-area: months; }
-.days { grid-area: days; }
-.squares { grid-area: squares; }
+.months {
+  grid-area: months;
+}
+.days {
+  grid-area: days;
+}
+.squares {
+  grid-area: squares;
+}
 
 .graph {
   display: inline-grid;
-  grid-template-areas: "empty months"
-                       "days squares";
+  grid-template-areas:
+    "empty months"
+    "days squares";
   grid-template-columns: auto 1fr;
   grid-gap: 10px;
 }
 
 .months {
   display: grid;
-  grid-template-columns: calc(var(--week-width) * 4) /* Jan */
-                         calc(var(--week-width) * 4) /* Feb */
-                         calc(var(--week-width) * 4) /* Mar */
-                         calc(var(--week-width) * 5) /* Apr */
-                         calc(var(--week-width) * 4) /* May */
-                         calc(var(--week-width) * 4) /* Jun */
-                         calc(var(--week-width) * 5) /* Jul */
-                         calc(var(--week-width) * 4) /* Aug */
-                         calc(var(--week-width) * 4) /* Sep */
-                         calc(var(--week-width) * 5) /* Oct */
-                         calc(var(--week-width) * 4) /* Nov */
-                         calc(var(--week-width) * 5) /* Dec */;
+  grid-template-columns:
+    calc(var(--week-width) * 4) /* Jan */
+    calc(var(--week-width) * 4) /* Feb */
+    calc(var(--week-width) * 4) /* Mar */
+    calc(var(--week-width) * 5) /* Apr */
+    calc(var(--week-width) * 4) /* May */
+    calc(var(--week-width) * 4) /* Jun */
+    calc(var(--week-width) * 5) /* Jul */
+    calc(var(--week-width) * 4) /* Aug */
+    calc(var(--week-width) * 4) /* Sep */
+    calc(var(--week-width) * 5) /* Oct */
+    calc(var(--week-width) * 4) /* Nov */
+    calc(var(--week-width) * 5) /* Dec */;
 }
 
 .days,
@@ -94,6 +100,8 @@ onMounted(()=>{
   grid-auto-flow: column;
   grid-auto-columns: var(--square-size);
 }
+
+/* Other styling */
 
 
 .graph {

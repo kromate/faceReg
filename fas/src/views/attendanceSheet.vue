@@ -1,15 +1,18 @@
 <template>
 	<div class="p-4 mt-12">
 		<div>database</div>
-		<AttendanceGraph/>
+		<div>
+			<GraphSheet/>
+		</div>
+		
 	</div>
 	
 
 	
 </template>
 
-<script>
-import AttendanceGraph from '../components/AttendanceGraph.vue'
+<script setup>
+import GraphSheet from '../components/GraphSheet.vue'
 
 </script>
 
