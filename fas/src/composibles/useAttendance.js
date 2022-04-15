@@ -72,8 +72,6 @@ const scanImg = async (router) => {
 			})
 			canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 			useAlert().openAlert('Unknown User Found, go and register')
-		
-     
 		})
 	}
 }
