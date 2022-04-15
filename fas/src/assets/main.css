@@ -23,56 +23,29 @@ canvas{
   /* left: -125px; */
   margin-inline: auto;
   max-width: 89%;
+      z-index: 1;
 }
 video{
   width: 500px;
   height: 500px;
 max-width: 89%;
   margin-inline: auto;
+  z-index: -1;
 }
 @media screen and (max-width:640px) {
   canvas, video{
      padding: 0px 1rem;
+     z-index: -1;
   }
 }
 @layer components{
   .btn{
     @apply border px-5 py-3
   }
+  .badge{
+  @apply  text-xs px-3  rounded-full py-[0.2rem] flex justify-center items-center
+  }
 }
 
 
 
-details {
-  padding: 15px;
-  background-color: #f6f7f8;
-  margin-bottom: 20px;
-}
-
-summary {
-  cursor: pointer;
-  outline: none;
-}
-
-summary::-webkit-details-marker {
-  color: #fff;
-  background-color: #000;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary:before {
-  content: "\2714";
-  /* the new icon */
-  color: #696f7c;
-  margin-right: 5px;
-}
-
-summary:before {
-  content: "\25B8";
-  /* unicode character of the litle triangle  */
-  color: #000;
-  margin-right: 5px;
-}
