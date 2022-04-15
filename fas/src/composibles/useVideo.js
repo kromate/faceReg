@@ -18,7 +18,6 @@ const getMode = (objMood) => {
 	return highestMood
 }
 export const saveFace = (faceData)=> {
-
 	Webcam.snap(function (data_uri) {
 		if (faceData.detection.score.toFixed(2) > 0.7) {
 			globalState.capturedFaces.value.push(
