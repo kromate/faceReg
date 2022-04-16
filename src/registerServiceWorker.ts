@@ -13,10 +13,11 @@ register(`${process.env.BASE_URL}sw.js`, {
 	},
 	registered() {
 		console.log('Service worker has been registered.')
-		closeCacheLoader()
+	
 	},
 	cached() {
 		console.log('Content has been cached for offline use.')
+		closeCacheLoader()
 	},
 	updatefound() {
 		console.log('New content is downloading.')
