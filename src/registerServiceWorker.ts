@@ -17,7 +17,6 @@ register(`${process.env.BASE_URL}sw.js`, {
 	},
 	cached() {
 		console.log('Content has been cached for offline use.')
-		closeCacheLoader()
 	},
 	updatefound() {
 		console.log('New content is downloading.')

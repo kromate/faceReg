@@ -16,7 +16,7 @@ const models = [
 
 const staticCacheName = 'site-static-v5';
 const dynamicCacheName = 'site-dynamic-v5';
-
+const size = 50
 
 self.addEventListener('install', (evt) => {
 	evt.waitUntil(
@@ -40,13 +40,13 @@ const limitCacheSize = (name, size) => {
 	});
 };
 
-workbox.core.setCacheNameDetails({prefix: 'KAA'});
+workbox.core.setCacheNameDetails({prefix: 'FAS'});
 
-self.addEventListener('message', (event) => {
-	if (event.data && event.data.type === 'SKIP_WAITING') {
-		self.skipWaiting();
-	}
-});
+// self.addEventListener('message', (event) => {
+// 	if (event.data && event.data.type === 'SKIP_WAITING') {
+// 		self.skipWaiting();
+// 	}
+// });
   
 // activate event
   
@@ -54,7 +54,7 @@ self.addEventListener('activate', (event) => {
 	if (caches) {
 		caches.keys().then((arr) => {
 			arr.forEach((key) => {
-				if (key.indexOf('KAA-precache') < -1) {
+				if (key.indexOf('FAS-precache') < -1) {
 					caches.delete(key).then(() => console.log(`%c Cleared ${key}`, 'background: #333; color: #ff0000'))
 				} else {
 					caches.open(key).then((cache) => {
