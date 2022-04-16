@@ -14,8 +14,8 @@ const models = [
 
 ]
 
-const staticCacheName = 'site-static-v4';
-const dynamicCacheName = 'site-dynamic-v4';
+const staticCacheName = 'site-static-v5';
+const dynamicCacheName = 'site-dynamic-v5';
 
 
 self.addEventListener('install', (evt) => {
