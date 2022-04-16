@@ -13,7 +13,7 @@ register(`${process.env.BASE_URL}sw.js`, {
 	},
 	registered() {
 		console.log('Service worker has been registered.')
-	
+		closeCacheLoader()
 	},
 	cached() {
 		console.log('Content has been cached for offline use.')
@@ -32,5 +32,6 @@ register(`${process.env.BASE_URL}sw.js`, {
 	},
 	error(error) {
 		console.error('Error during service worker registration:', error)
+		closeCacheLoader()
 	},
 })
