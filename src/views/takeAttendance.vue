@@ -13,7 +13,6 @@
 </template>
 
 <script setup>
-import SavePerson from '../components/SavePerson.vue'
 import DefaultLayout from '../layout/defaultLayout.vue'
 import {  onMounted, onUpdated } from 'vue'
 import {mountWebcam} from '../composibles/useWebcam'
