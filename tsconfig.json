@@ -1,40 +1,24 @@
 {
-	"compilerOptions": {
-		"target": "ES2017",
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"strict": true,
-		"jsx": "preserve",
-		"importHelpers": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"sourceMap": true,
-		"allowJs": true,
-		"baseUrl": ".",
-		"types": [
-			"webpack-env",
-			"@types/node"
-		],
-		"paths": {
-			"@/*": [
-				"src/*"
-			],
-	
-		},
-		"lib": [
-			"esnext",
-			"dom",
-			"dom.iterable",
-			"scripthost"
-		]
-	},
-	"include": [
-		"src"
-	],
-	"exclude": [
-		"node_modules",
-		"build",
-		"dist"
-	]
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "allowSyntheticDefaultImports":true,
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+     "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"]
+    },
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
