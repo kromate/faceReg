@@ -14,7 +14,7 @@ module.exports = {
 		parser: '@typescript-eslint/parser'
 	},
 	rules: {
-		'no-console': 'warn',
+		'no-console': 'off',
 		'no-debugger': 'warn',
 		'vue/no-deprecated-slot-attribute': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
